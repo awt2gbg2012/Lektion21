@@ -1,0 +1,34 @@
+﻿@{
+    ViewBag.Title = "About Us";
+    // <script>$('body').prepend('<h1> !!! ' + $('#logindisplay strong').html() + ': I WAS NOT HERE BEFORE !!! </h1>');</script>
+}
+
+<h2>XSS Enabled Blog!</h2>
+
+<h3>Post Title</h3>
+<p id="paragraph">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vitae magna diam. Pellentesque nec urna tortor. Curabitur in dolor ipsum. Vestibulum accumsan, lorem nec auctor ultricies, tortor erat congue felis, eu tempus nunc urna sed neque. Vivamus feugiat scelerisque varius. Nam nec tortor arcu. Sed fringilla euismod tempor. Fusce tempor dui vitae magna ultrices sit amet scelerisque libero rutrum. Nullam vitae tristique purus. 
+</p>
+
+<input type="text" id="comment" />
+<a href="#" id="postComment">Post Comment</a>
+<div id="comments">
+    <p>comment: Please keep it civil.</p>
+    <p>comment: Everything I wrote is backed up by solid proof. Admins are on a power trip. Lizardmen run the government. How can you not see this?!?!!</p>
+    <p>comment: Get a life you miserable swamp dweller!</p>
+</div>
+
+<p class="comment">
+    Notera: Även om vi inte gör det i det här fallet så finns det inget som hindrar oss från att spara dessa kommentarer i en databas och på så sätt alltid visa XSS-injicerad script för samtliga besökare på sidan.
+</p>
+
+<p class="comment">
+    Notera också: I det här fallet är det en väldigt tydlig XSS. Det finns inget som hindrar script från att köras tyst i bakgrunden och t.ex. posta data till en web service.
+</p>
+
+<script type="text/javascript">
+    $('#postComment').click(function () {
+        $('#comments').append('<p>comment: ' + $('#comment').val() + '</p>');
+        return false;
+    });
+</script>

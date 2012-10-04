@@ -1,0 +1,24 @@
+﻿@model SQLInjection.Models.BlogViewModel
+
+@{
+    ViewBag.Title = "AboutV2";
+}
+
+<h2>Blog V2 - Now with less XSS!</h2>
+
+<h3>Post Title</h3>
+<p id="paragraph">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vitae magna diam. Pellentesque nec urna tortor. Curabitur in dolor ipsum. Vestibulum accumsan, lorem nec auctor ultricies, tortor erat congue felis, eu tempus nunc urna sed neque. Vivamus feugiat scelerisque varius. Nam nec tortor arcu. Sed fringilla euismod tempor. Fusce tempor dui vitae magna ultrices sit amet scelerisque libero rutrum. Nullam vitae tristique purus. 
+</p>
+
+@using (Html.BeginForm()) { 
+    @Html.EditorFor(m => Model.Comment)
+    <input type="submit" class="submitLink" value="Post Comment" />
+}
+
+
+@foreach (var item in Model.Comments)
+{ 
+    <p>comment: @item</p>
+}
+

@@ -1,0 +1,32 @@
+﻿@model String
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<h2>SQL Injection via querystring</h2>
+
+<p>
+    Result:
+    @Model
+</p>
+
+<p>
+    @Html.ActionLink("Seed Users", "CreateAndSeedUsers");
+</p>
+
+<a href="#" id="showUsers">Show All Users</a>
+<div id="users">
+</div>
+
+<p class="comment">
+    Notera: I just det här fallet så görs SQL Injection via query strings till sidan - lägg märke till att det lika gärna hade kunnat röra sig om input från ett textfält, eller vilken annan typ av user input som helst.
+</p>
+
+<script type="text/javascript">
+    $('#showUsers').click(function () {
+        $.get('/Home/ShowAllUsers', function (data) {
+            $('#users').html(data);
+        });
+        return false;
+    });
+</script>

@@ -1,0 +1,16 @@
+﻿@model SQLInjection.Models.UserViewModel
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>User Details</h2>
+
+<p>User: David</p>
+<p>Password: @Model.Password</p>
+
+@using (Html.BeginForm("ChangePassword", "Home")) {
+    @Html.EditorFor(m => Model.Password)
+    <input type="submit" class="submitLink" value="Change Password" />
+}
